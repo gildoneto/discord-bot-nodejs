@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const movies = require('./movies')
@@ -7,17 +6,20 @@ const movies = require('./movies')
 bot.on('message', getMessage)
 
 function getMessage(message){
-
-    const msgAnswer = new Discord.MessageEmbed()
-    msgAnswer.setDescription(` `)
-
     if (message.author.bot == false) {
-        if (message.content == '!GG'){
-            message.channel.send("Good game, Champ!!")
-        } else if (message.content == '!suave') {
-            message.channel.send("Suave na nave, meu brother!")
-        } else
-            message.channel.send('Ola, essa eh uma resposta automatica!')
+        if (message.content == '!starwars'){
+            movies.map((movie) => {
+                const msg = new Discord.MessageEmbed()
+                msg.setTitle(movie.title)
+                msg.setDescription(movie.synopsis)
+                msg.setColor("#1474db")
+                msg.setImage(movie.img)
+        
+                message.channel.send(msg)
+              })
+            }
+            else
+            message.channel.send('Olá, essa é uma resposta automática! Voce nao digitou nenhum comando. Tente digitar o comando: !starwars')
     }
     //console.log({autor: message.author.username, conteudo:message.content})
 }

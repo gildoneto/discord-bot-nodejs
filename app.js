@@ -14,6 +14,8 @@ function getMessage(message){
                 msg.setDescription(movie.synopsis)
                 msg.setColor("#1474db")
                 msg.setImage(movie.img)
+                msg.setFooter(`lançado em ${movie.year}`, 'https://i.pinimg.com/originals/0c/cd/6a/0ccd6a5e74067bab2d43b4c3e7501fd1.jpg')
+                //msg.setFooter(`Rating no Rotten Tomatoes: ${movie.year}`, 'https://image.freepik.com/free-photo/one-ripe-tomato-white-background-tomat-white_73289-74.jpg')
         
                 message.channel.send(msg)
               })

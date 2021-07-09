@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 const baseUrl = 'https://swapi.dev/api/'
 const page = '/?page='
 
-const getAllPages = async (channel, param) => {
+const getAllPages = async (param) => {
     let pageNumber = 1
     let next
     const elements = []
@@ -15,20 +15,20 @@ const getAllPages = async (channel, param) => {
         pageNumber++
     } while (next != null)
 
-    console.log(elements)
+    console.table(elements)
 }
 
-const getPage = async (channel, param, pageNumber) => {
+const getPage = async (param, pageNumber) => {
     const elements = []
 
     const response = await axios.get(getUrl(param, pageNumber))
     const {data} = response
-    data.results.map(item => elements.push(item.name ))
-    console.log(elements)
+    data.results.map(item => elements.push(item.name))
+    console.table(elements)
 
-    channel.send(new MessageEmbed()
-    .setDescription(elements.map(element => `${element.name}`))
-    )
+    // channel.send(new MessageEmbed()
+    // .setDescription(elements.map(element => `${element.name}`))
+    // )
 }
 
 const getUrl = (endpoint, pageNumber) => { 
@@ -37,8 +37,8 @@ const getUrl = (endpoint, pageNumber) => {
 }
 
 //getAllPages('people')
-//getAllPages('planets')
-//getAllPages('starships')
+getAllPages('planets')
+// getAllPages('starships')
 // getAllPages('species')
 // getAllPages('vehicles')
 // getPage('people', 3)

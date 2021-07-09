@@ -4,11 +4,11 @@ const baseUrl = 'https://swapi.dev/api/'
 const page = '/?page='
 let elements = []
 
-const getSwapi = async () => {
+const getSwapi = async (param) => {
     let num = 1
     let next
 
-    do { let response = await axios.get(getUrl('planets', num))
+    do { let response = await axios.get(getUrl(param, num))
     const {data} = response
     data.results.map(item => elements.push(item.name ))
     //console.log(num, elements)
@@ -23,4 +23,6 @@ const getUrl = (endpoint, num) => {
     return `${baseUrl}${endpoint}${page}${num}`
 }
 
-getSwapi()
+getSwapi('people')
+getSwapi('planets')
+getSwapi('starships')

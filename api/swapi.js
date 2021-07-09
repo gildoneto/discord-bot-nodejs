@@ -2,11 +2,11 @@ const axios = require('axios')
 const { MessageEmbed } = require('discord.js')
 const baseUrl = 'https://swapi.dev/api/'
 const page = '/?page='
-let elements = []
 
 const getSwapi = async (param) => {
     let num = 1
     let next
+    const elements = []
 
     do { let response = await axios.get(getUrl(param, num))
     const {data} = response
@@ -23,6 +23,8 @@ const getUrl = (endpoint, num) => {
     return `${baseUrl}${endpoint}${page}${num}`
 }
 
-getSwapi('people')
-getSwapi('planets')
-getSwapi('starships')
+//getSwapi('people')
+//getSwapi('planets')
+//getSwapi('starships')
+// getSwapi('species')
+getSwapi('vehicles')

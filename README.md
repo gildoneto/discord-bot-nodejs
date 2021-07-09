@@ -1,11 +1,11 @@
 # DiscordBot
 
 Vocês deverão utilizar uma api para consultar:
-- Planetas
-- Espécies
-- Veículos
-- Personagens
-- Naves
+- Planetas - ✔
+- Espécies - ✔
+- Veículos - ✔
+- Personagens - ✔
+- Naves - ✔
 
 Deverá ser possível consultar páginas específicas dos ENDPOINTS
 Ex: !planetas 2 (consultar a 2ª página do ENDPOINT /planets)

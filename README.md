@@ -18,9 +18,9 @@ Se atentar a:
 - Preze pela informação, seu BOT deve ser claro e educado, chamar a pessoa que digitou o comando pelo nome não faz mal a ninguém!
 
 Docs Auxiliares:
-Split - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split
-Join - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/join
-API - https://swapi.dev/
-Async - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function
-Axios - https://www.npmjs.com/package/axios
-Switch - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch
+Split - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split <br>
+Join - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/join <br>
+API - https://swapi.dev/ <br>
+Async - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/async_function <br>
+Axios - https://www.npmjs.com/package/axios <br>
+Switch - https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/switch 

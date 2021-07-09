@@ -2,9 +2,12 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const movies = require('./movies')
 
-
 bot.on('message', getMessage)
 
+/**
+* Gerencia a mensagem recebida pelo BOT
+* @param {Discord.Message} message - mensagem recebida pelo BOT
+*/
 function getMessage(message){
     if (message.author.bot == false) {
         if (message.content == '!starwars'){
@@ -21,7 +24,7 @@ function getMessage(message){
               })
             }
             else
-            message.channel.send('Olá, essa é uma resposta automática! Voce nao digitou nenhum comando. Tente digitar o comando: !starwars')
+            message.channel.send(`Olá ${message.author}, essa é uma resposta automática! Voce nao digitou nenhum comando. Tente digitar o comando: !starwars`)
     }
     //console.log({autor: message.author.username, conteudo:message.content})
 }

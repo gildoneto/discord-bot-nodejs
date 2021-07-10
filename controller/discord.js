@@ -10,8 +10,9 @@ const variables = require('../db/variables.json')
 */
 const getMessage = async (message) => {
     const { channel, author, content } = message
+    const arrayContent = content.split(' ')
     if (author.bot == false) {
-        switch (content) {
+        switch (arrayContent[0]) {
             case '!starwars':
                 movieController.showAllMovies(channel, author)
             break
@@ -32,6 +33,9 @@ const getMessage = async (message) => {
             break
             case `!personagens`:
                 await api.getAllPages(channel, 'people', 'Personagens  🧙🏽‍♂️', variables.thumbPersonagens)
+            break
+            case `!personagem`:
+                await api.getPage(channel, 'people', 'Personagens  🧙🏽‍♂️', variables.thumbPersonagens, arrayContent[1])
             break
             case `!planetas`:
                 await api.getAllPages(channel, 'planets', 'Planetas  🪐', variables.thumbPlanetas)

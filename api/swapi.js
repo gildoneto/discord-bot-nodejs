@@ -6,7 +6,6 @@ const page = '/?page='
 const getAllPages = async (channel, param, title, thumb) => {
     let pageNumber = 1
     let next
-    let count
     const elements = []
 
     do { let response = await axios.get(getUrl(param, pageNumber))
@@ -16,11 +15,10 @@ const getAllPages = async (channel, param, title, thumb) => {
         pageNumber++
     } while (next != null)
 
-    // console.table(elements)
     channel.send(new MessageEmbed()
     .setThumbnail(thumb)
     .setTitle(`Lista de ${title}`)
-    .setDescription(elements)
+    .setDescription(elements.map(element => `▫ ${element}`))
     .setFooter(`TOTAL: ${elements.length}`)
     )
 }
@@ -33,9 +31,6 @@ const getPage = async (param, pageNumber) => {
     data.results.map(item => elements.push(item.name))
     console.table(elements)
 
-    // channel.send(new MessageEmbed()
-    // .setDescription(elements.map(element => `${element.name}`))
-    // )
 }
 
 const getUrl = (endpoint, pageNumber) => { 
@@ -43,11 +38,7 @@ const getUrl = (endpoint, pageNumber) => {
     
 }
 
-//getAllPages('people')
-// getAllPages('planets')
-// getAllPages('starships')
-// getAllPages('species')
-// getAllPages('vehicles')
+
 // getPage('people', 3)
 
 const getPeople = async (channel, pageNumber) => await getPage(channel, 'people', pageNumber)

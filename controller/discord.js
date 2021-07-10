@@ -31,19 +31,19 @@ const getMessage = async (message) => {
                 movieController.showSectionMovies(channel, movieController.filterSerie)
             break
             case `!personagens`:
-                await api.getAllPages(channel, 'people', 'Personagens', variables.thumbPersonagens)
+                await api.getAllPages(channel, 'people', 'Personagens  🧙🏽‍♂️', variables.thumbPersonagens)
             break
             case `!planetas`:
-                await api.getAllPages(channel, 'planets', 'Planetas', variables.thumbPlanetas)
+                await api.getAllPages(channel, 'planets', 'Planetas  🪐', variables.thumbPlanetas)
             break
             case `!naves`:
-                await api.getAllPages(channel, 'starships', 'Naves', variables.thumbNaves)
+                await api.getAllPages(channel, 'starships', 'Naves  🛸', variables.thumbNaves)
             break
             case `!especies`:
-                await api.getAllPages(channel, 'species', 'Espécies', variables.thumbSpecies)
+                await api.getAllPages(channel, 'species', 'Espécies  👽', variables.thumbSpecies)
             break
             case `!veiculos`:
-                await api.getAllPages(channel, 'vehicles', 'Veículos', variables.thumbVeiculos)
+                await api.getAllPages(channel, 'vehicles', 'Veículos  🚍', variables.thumbVeiculos)
             break
             case `!comandos`:
                 welcome.commandsMessage(channel)

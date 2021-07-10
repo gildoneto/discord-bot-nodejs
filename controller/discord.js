@@ -16,13 +16,13 @@ const getMessage = async (message) => {
             case '!starwars':
                 movieController.showAllMovies(channel, author)
             break
-            case '!classic':
+            case '!classica':
                 movieController.showSectionMovies(channel, movieController.filterClassic)
             break
             case '!prequel':
                 movieController.showSectionMovies(channel, movieController.filterPrequel)
             break
-            case '!new':
+            case '!nova':
                 movieController.showSectionMovies(channel, movieController.filterNew)
             break
             case '!spin':
@@ -31,23 +31,35 @@ const getMessage = async (message) => {
             case '!serie':
                 movieController.showSectionMovies(channel, movieController.filterSerie)
             break
-            case `!personagens`:
-                await api.getAllPages(channel, 'people', 'Personagens  🧙🏽‍♂️', variables.thumbPersonagens)
+            case `!totalpersonagens`:
+                await api.getAllPages(channel, variables.characterParam, variables.characterTitle, variables.thumbPersonagens)
             break
-            case `!personagem`:
-                await api.getPage(channel, 'people', 'Personagens  🧙🏽‍♂️', variables.thumbPersonagens, arrayContent[1])
+            case `!personagens`:
+                await api.getPage(channel, variables.characterParam, variables.characterTitle, variables.thumbPersonagens, arrayContent[1])
+            break
+            case `!totalplanetas`:
+                await api.getAllPages(channel, variables.planetParam, variables.planetTitle, variables.thumbPlanetas)
             break
             case `!planetas`:
-                await api.getAllPages(channel, 'planets', 'Planetas  🪐', variables.thumbPlanetas)
+                await api.getPage(channel, variables.planetParam, variables.planetTitle, variables.thumbPersonagens, arrayContent[1])
+            break
+            case `!totalnaves`:
+                await api.getAllPages(channel, variables.starshipParam, variables.starshipTitle, variables.thumbNaves)
             break
             case `!naves`:
-                await api.getAllPages(channel, 'starships', 'Naves  🛸', variables.thumbNaves)
+                await api.getPage(channel, variables.starshipParam, variables.starshipTitle, variables.thumbNaves, arrayContent[1])
+            break
+            case `!totalespecies`:
+                await api.getAllPages(channel, variables.speciesParam, variables.speciesTitle, variables.thumbSpecies)
             break
             case `!especies`:
-                await api.getAllPages(channel, 'species', 'Espécies  👽', variables.thumbSpecies)
+                await api.getPage(channel, variables.speciesParam, variables.speciesTitle, variables.thumbPersonagens, arrayContent[1])
+            break
+            case `!totalveiculos`:
+                await api.getAllPages(channel, variables.vehiclesParam, variables.vehiclesTitle, variables.thumbVeiculos)
             break
             case `!veiculos`:
-                await api.getAllPages(channel, 'vehicles', 'Veículos  🚍', variables.thumbVeiculos)
+                await api.getPage(channel, variables.vehiclesParam, variables.vehiclesTitle, variables.thumbPersonagens, arrayContent[1])
             break
             case `!comandos`:
                 welcome.commandsMessage(channel)

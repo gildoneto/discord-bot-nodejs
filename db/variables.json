@@ -3,5 +3,15 @@
     "thumbPersonagens": "https://m.media-amazon.com/images/P/B07THHL516.01._SCLZZZZZZZ_SX500_.jpg",
     "thumbNaves": "https://m.media-amazon.com/images/P/B07DKX4TT2.01._SCLZZZZZZZ_SX500_.jpg",
     "thumbSpecies": "https://images-na.ssl-images-amazon.com/images/I/5168GH8RBGL._SX366_BO1,204,203,200_.jpg",
-    "thumbPlanetas": "https://static.wikia.nocookie.net/starwars/images/1/1f/EGPM.jpg"
+    "thumbPlanetas": "https://static.wikia.nocookie.net/starwars/images/1/1f/EGPM.jpg",
+    "characterParam": "people",
+    "planetParam": "planets",
+    "starshipParam": "starships",
+    "speciesParam": "species",
+    "vehiclesParam": "vehicles",
+    "characterTitle": "Personagens  🧙🏽‍♂️",
+    "planetTitle": "Planetas  🪐",
+    "starshipTitle": "Naves  🛸",
+    "speciesTitle": "Espécies  👽",
+    "vehiclesTitle": "Veículos  🚍"
 }

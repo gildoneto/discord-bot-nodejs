@@ -20,6 +20,11 @@ Se liga nesses comandos:
 !new - filmes da trilogia nova
 !spin - filmes spin off
 !serie - series da franquia
+!personagens - todos os personagens
+!planetas - todos os planetas
+!naves - todas as naves
+!especies - todas as especies
+!veiculos - todos os veiculos
 `))
 
 }

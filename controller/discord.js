@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
-const bot = new Discord.Client()
 const movieController = require('./movie')
 const welcome = require('../controller/welcome')
-
+const api = require('../api/swapi')
+const variables = require('../db/variables.json')
 
 /**
 * Gerencia a mensagem recebida pelo BOT
@@ -29,6 +29,21 @@ const getMessage = async (message) => {
             break
             case '!serie':
                 movieController.showSectionMovies(channel, movieController.filterSerie)
+            break
+            case `!personagens`:
+                await api.getAllPages(channel, 'people', 'Personagens', variables.thumbPersonagens)
+            break
+            case `!planetas`:
+                await api.getAllPages(channel, 'planets', 'Planetas', variables.thumbPlanetas)
+            break
+            case `!naves`:
+                await api.getAllPages(channel, 'starships', 'Naves', variables.thumbNaves)
+            break
+            case `!especies`:
+                await api.getAllPages(channel, 'species', 'Espécies', variables.thumbSpecies)
+            break
+            case `!veiculos`:
+                await api.getAllPages(channel, 'vehicles', 'Veículos', variables.thumbVeiculos)
             break
             case `!comandos`:
                 welcome.commandsMessage(channel)

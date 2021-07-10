@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const movieController = require('./movie')
 
+
+
 /**
 * Gerencia a mensagem recebida pelo BOT
 * @param {Discord.Message} message - mensagem recebida pelo BOT
@@ -12,6 +14,9 @@ const getMessage = async (message) => {
         switch (content) {
             case '!starwars':
                 movieController.showAllMovies(channel, author)
+                break
+            case '!teste':
+                movieController.showSectionMovies(channel)
                 break
         }
     }

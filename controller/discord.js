@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
 const movieController = require('./movie')
-
+const welcome = require('../controller/welcome')
 
 
 /**
@@ -14,10 +14,28 @@ const getMessage = async (message) => {
         switch (content) {
             case '!starwars':
                 movieController.showAllMovies(channel, author)
-                break
-            case '!teste':
-                movieController.showSectionMovies(channel)
-                break
+            break
+            case '!classic':
+                movieController.showSectionMovies(channel, movieController.filterClassic)
+            break
+            case '!prequel':
+                movieController.showSectionMovies(channel, movieController.filterPrequel)
+            break
+            case '!new':
+                movieController.showSectionMovies(channel, movieController.filterNew)
+            break
+            case '!spin':
+                movieController.showSectionMovies(channel, movieController.filterSpin)
+            break
+            case '!serie':
+                movieController.showSectionMovies(channel, movieController.filterSerie)
+            break
+            case `!comandos`:
+                welcome.commandsMessage(channel)
+            break
+            default:
+                welcome.defaultMessage(channel, author)
+            break
         }
     }
 
@@ -26,5 +44,3 @@ const getMessage = async (message) => {
 
 
 module.exports = {getMessage}
-
-// bot.login('ODYyMTEyODQwMjU2NzE2ODEw.YOTnJg.CaUQywZZbu8NbjXP3lto_81wV-8');

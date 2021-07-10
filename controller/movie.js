@@ -24,8 +24,8 @@ Audiência: ${movie.audience} 🍿`))
     })
 }
 
-const showSectionMovies = (channel) => {
-    movies.filter(filterSection).map((movie) => {
+const showSectionMovies = (channel, filter) => {
+    movies.filter(filter).map((movie) => {
         const section = getSection(movie.section)
         channel.send(new MessageEmbed()
         .setTitle(movie.title)
@@ -51,14 +51,20 @@ Audiência: ${movie.audience} 🍿`)
     })
 }
 
-const filterMovie = (filter) => {
-    return movies.filter(filter)
-}
-
-const filterSection = ( movie ) => {
-    return movie.section == 'Trilogia Prequel'
-}
+const filterClassic = ( movie) => {return movie.section == 'Trilogia Classica'}
+const filterPrequel = ( movie) => {return movie.section == 'Trilogia Prequel'}
+const filterNew = ( movie) => {return movie.section == 'Trilogia Nova'}
+const filterSpin = ( movie) => {return movie.section == 'Spin Off'}
+const filterSerie = ( movie) => {return movie.section == 'Serie'}
 
 // test()
 
-module.exports = {showAllMovies, showSectionMovies}
+module.exports = {
+    showAllMovies, 
+    showSectionMovies,
+    filterClassic, 
+    filterPrequel,
+    filterNew,
+    filterSpin,
+    filterSerie
+}

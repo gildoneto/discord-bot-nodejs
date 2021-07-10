@@ -10,23 +10,41 @@ const defaultMessage = (channel, author) => {
     // return `Saudacoes ${author}! Se voce curte Star Wars, eu posso te ajudar. digite !comandos pra eu te mostrar uma lista no grau 😉`
 }
 
+const errorMessage = (channel, author) => {
+    channel.send(new MessageEmbed().setDescription(`Opa ${author}! Acho que voce digitou algum comando que eu nao conheco ainda. Que tal digitar !comandos pra eu te mostrar uma lista show? 😉`))
+    
+}
+
 const commandsMessage = (channel) => {
     channel.send(new MessageEmbed().setDescription(
 `
 Se liga nesses comandos:
-
-!starwars - todos os filmes
-!classic - filmes da trilogia classica
-!new - filmes da trilogia nova
-!spin - filmes spin off
-!serie - series da franquia
-!personagens - todos os personagens
-!planetas - todos os planetas
-!naves - todas as naves
-!especies - todas as especies
-!veiculos - todos os veiculos
+----------------------------------------------------
+ !totalfilmes - todos os filmes
+----------------------------------------------------
+ !filmes classica - filmes da trilogia classica
+ !filmes prequel - filmes da trilogia prequel
+ !filmes nova - filmes da trilogia nova
+ !filmes spin - filmes spin off
+ !filmes serie - series da franquia
+----------------------------------------------------
+ !totalpersonagens - todos os personagens
+ !personagens num - num = de 1 a 9
+----------------------------------------------------
+ !totalplanetas - todos os planetas
+ !planetas num - num = de 1 a 6
+----------------------------------------------------
+ !totalnaves - todas as naves
+ !naves num - num = de 1 a 4
+----------------------------------------------------
+| !totalespecies - todas as especies               |
+| !especies num - num = de 1 a 4                   |
+----------------------------------------------------
+| !totalveiculos - todos os veiculos               |
+| !veiculos num - num = de 1 a 4                   |
+----------------------------------------------------
 `))
 
 }
 
-module.exports = {welcomeMessage, defaultMessage, commandsMessage}
+module.exports = {welcomeMessage, defaultMessage, commandsMessage, errorMessage}

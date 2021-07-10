@@ -13,23 +13,11 @@ const getMessage = async (message) => {
     const arrayContent = content.split(' ')
     if (author.bot == false) {
         switch (arrayContent[0]) {
-            case '!starwars':
+            case '!totalfilmes':
                 movieController.showAllMovies(channel, author)
             break
-            case '!classica':
-                movieController.showSectionMovies(channel, movieController.filterClassic)
-            break
-            case '!prequel':
-                movieController.showSectionMovies(channel, movieController.filterPrequel)
-            break
-            case '!nova':
-                movieController.showSectionMovies(channel, movieController.filterNew)
-            break
-            case '!spin':
-                movieController.showSectionMovies(channel, movieController.filterSpin)
-            break
-            case '!serie':
-                movieController.showSectionMovies(channel, movieController.filterSerie)
+            case '!filmes':
+                movieController.handleMovie(channel, arrayContent[1])
             break
             case `!totalpersonagens`:
                 await api.getAllPages(channel, variables.characterParam, variables.characterTitle, variables.thumbPersonagens)

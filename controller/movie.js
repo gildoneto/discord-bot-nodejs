@@ -41,14 +41,29 @@ Audiência: ${movie.audience} 🍿`)
     })
 }
 
-const test = () => {
-    movies.filter(filterSection).map((movie) => {
-        console.log(
-        `Lançado em ${movie.year}
-Rating no Rotten Tomatoes 🍅
-Crítica: ${movie.critic} 👴🏽
-Audiência: ${movie.audience} 🍿`)
-    })
+const handleMovie = (channel, filter) => {
+    switch (filter){
+        case 'classica':
+            showSectionMovies(channel, filterClassic)
+        break
+        case 'prequel':
+            showSectionMovies(channel, filterPrequel)
+        break
+        case 'nova':
+            showSectionMovies(channel, filterNew)
+        break
+        case 'spin':
+            showSectionMovies(channel, filterSpin)
+        break
+        case 'serie':
+            showSectionMovies(channel, filterSerie)
+        break
+        default:
+            console.log(`Secao nao existe!`)
+            channel.send(new MessageEmbed().setDescription(messageController.errorMessage(author)))
+        break
+
+    }
 }
 
 const filterClassic = ( movie) => {return movie.section == 'Trilogia Classica'}
@@ -62,6 +77,7 @@ const filterSerie = ( movie) => {return movie.section == 'Serie'}
 module.exports = {
     showAllMovies, 
     showSectionMovies,
+    handleMovie,
     filterClassic, 
     filterPrequel,
     filterNew,

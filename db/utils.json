@@ -1,22 +1,22 @@
 [
     {
-      "section":"Trilogia Classica",
+      "section":"classica",
       "color":"#de0bb0"
     },
     {
-      "section":"Trilogia Prequel",
+      "section":"prequel",
       "color":"#b81661"
     },
     {
-      "section":"Trilogia Nova",
+      "section":"nova",
       "color":"#d78de3"
     },
     {
-      "section":"Spin Off",
+      "section":"spin",
       "color":"#6b4185"
     },
     {
-        "section":"Serie",
+        "section":"serie",
         "color":"#40125c"
     }
 

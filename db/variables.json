@@ -1,17 +1,35 @@
-{
-    "thumbVeiculos": "https://static.wikia.nocookie.net/starwars/images/d/dd/CompleteVehicles2018.png/revision/latest/scale-to-width-down/350?cb=20190730140421",
-    "thumbPersonagens": "https://m.media-amazon.com/images/P/B07THHL516.01._SCLZZZZZZZ_SX500_.jpg",
-    "thumbNaves": "https://m.media-amazon.com/images/P/B07DKX4TT2.01._SCLZZZZZZZ_SX500_.jpg",
-    "thumbSpecies": "https://images-na.ssl-images-amazon.com/images/I/5168GH8RBGL._SX366_BO1,204,203,200_.jpg",
-    "thumbPlanetas": "https://static.wikia.nocookie.net/starwars/images/1/1f/EGPM.jpg",
-    "characterParam": "people",
-    "planetParam": "planets",
-    "starshipParam": "starships",
-    "speciesParam": "species",
-    "vehiclesParam": "vehicles",
-    "characterTitle": "Personagens  🧙🏽‍♂️",
-    "planetTitle": "Planetas  🪐",
-    "starshipTitle": "Naves  🛸",
-    "speciesTitle": "Espécies  👽",
-    "vehiclesTitle": "Veículos  🚍"
+{ 
+  "params": [
+    {
+      "comando": "!personagens",
+      "endpoint": "people",
+      "title":"Personagens  🧙🏽‍♂️",
+      "thumb":"https://m.media-amazon.com/images/P/B07THHL516.01._SCLZZZZZZZ_SX500_.jpg"
+    },
+    {
+        "comando": "!naves",
+        "endpoint": "starships",
+        "title":"Naves  🛸",
+        "thumb":"https://m.media-amazon.com/images/P/B07DKX4TT2.01._SCLZZZZZZZ_SX500_.jpg"
+    },
+    {
+        "comando": "!planetas",
+        "endpoint": "planets",
+        "title":"Planetas  🪐",
+        "thumb":"https://static.wikia.nocookie.net/starwars/images/1/1f/EGPM.jpg"
+    },
+    {
+      "comando": "!veiculos",
+      "endpoint": "vehicles",
+      "title":"Veículos  🚍",
+      "thumb":"https://static.wikia.nocookie.net/starwars/images/d/dd/CompleteVehicles2018.png/revision/latest/scale-to-width-down/350?cb=20190730140421"
+    },
+    {
+      "comando": "!especies",
+      "endpoint": "species",
+      "title":"Espécies  👽",
+      "thumb":"https://images-na.ssl-images-amazon.com/images/I/5168GH8RBGL._SX366_BO1,204,203,200_.jpg"
+    }
+  ],
+  "discordKey": "ODYyMTEyODQwMjU2NzE2ODEw.YOTnJg.RBnCFPRzSONxY9_NUdU_N5-Qz3w"
 }

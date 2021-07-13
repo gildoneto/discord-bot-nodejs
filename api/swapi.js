@@ -6,48 +6,40 @@ const page = '/?page='
 const getAllPages = async (channel, endpoint, title, thumb) => {
     let pageNumber = 1
     let next
-    const elements = []
-
-    do { let response = await axios.get(getUrl(endpoint, pageNumber))
-        const {data} = response
-        data.results.map(item => elements.push(item.name ))
+    let elements = []    
+    do {
+        const data = await doRequest(endpoint,pageNumber)
+        elements = elements.concat(data.results)
         next = data.next
         pageNumber++
     } while (next != null)
 
-    channel.send(new MessageEmbed()
-    .setThumbnail(thumb)
-    .setTitle(`Lista de ${title}`)
-    .setDescription(elements.map(element => `▫ ${element}`))
-    .setFooter(`TOTAL: ${elements.length}`)
-    )
+    sendMessage(channel,thumb,title,elements)    
 }
 
+const getPage = async (channel, endpoint, title, thumb, pageNumber) => { 
+    const data = await doRequest(endpoint,pageNumber)
+    sendMessage(channel, thumb, title, data.results)
+}
 
-
-const getPage = async (channel, endpoint, title, thumb, pageNumber) => {
-    const elements = []
-
+const doRequest = async(endpoint,pageNumber) => {
     const response = await axios.get(getUrl(endpoint, pageNumber))
-    const {data} = response
-    data.results.map(item => elements.push(item.name))
-    // console.table(elements)
-    sendMessage(channel, thumb, title, elements)
+    const { data } = response
+    return data
 }
 
-const getUrl = (endpoint, pageNumber) => { 
+const getUrl = (endpoint, pageNumber) => {
     return `${baseUrl}${endpoint}${page}${pageNumber}`
-    
 }
 
 const sendMessage = (channel, thumb, title, elements) => {
     channel.send(new MessageEmbed()
-    .setThumbnail(thumb)
-    .setTitle(`Lista de ${title}`)
-    .setDescription(elements.map(element => `▫ ${element}`))
-    .setFooter(`TOTAL: ${elements.length}`)
+        .setThumbnail(thumb)
+        .setTitle(`Lista de ${title}`)
+        .setDescription(elements.map(element => `▫ ${element.name}`))
+        .setFooter(`TOTAL: ${elements.length}`)
     )
 }
 
-module.exports = {getAllPages, getPage}
+module.exports = { getAllPages, getPage }
 

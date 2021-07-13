@@ -1,7 +1,6 @@
-const {MessageEmbed} = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 const welcomeMessage = (author) => {
-
     return `Fala ${author} minha joia! Beleza? Sou especializado em Star Wars, meu pirraia. Se liga aew nessa lista marota! `
 }
 
@@ -10,17 +9,16 @@ const defaultMessage = (channel, author) => {
     // return `Saudacoes ${author}! Se voce curte Star Wars, eu posso te ajudar. digite !comandos pra eu te mostrar uma lista no grau 😉`
 }
 
-const errorMessage = (channel, author) => {
-    channel.send(new MessageEmbed().setDescription(`Opa ${author}! Acho que voce digitou algum comando que eu nao conheco ainda. Que tal digitar !comandos pra eu te mostrar uma lista show? 😉`))
-    
+const errorMessage = (author) => {
+    return `Opa ${author}! Acho que voce digitou algum comando que eu nao conheco ainda. Que tal digitar !comandos pra eu te mostrar uma lista show? 😉`
 }
 
 const commandsMessage = (channel) => {
     channel.send(new MessageEmbed().setDescription(
-`
+        `
 Se liga nesses comandos:
 ----------------------------------------------------
- !totalfilmes - todos os filmes
+ !filmes - todos os filmes
 ----------------------------------------------------
  !filmes classica - filmes da trilogia classica
  !filmes prequel - filmes da trilogia prequel
@@ -28,23 +26,23 @@ Se liga nesses comandos:
  !filmes spin - filmes spin off
  !filmes serie - series da franquia
 ----------------------------------------------------
- !totalpersonagens - todos os personagens
- !personagens num - num = de 1 a 9
+ !personagens - todos os personagens
+ !personagens num = de 1 a 9
 ----------------------------------------------------
- !totalplanetas - todos os planetas
- !planetas num - num = de 1 a 6
+ !planetas - todos os planetas
+ !planetas num = de 1 a 6
 ----------------------------------------------------
- !totalnaves - todas as naves
- !naves num - num = de 1 a 4
+ !naves - todas as naves
+ !naves num = de 1 a 4
 ----------------------------------------------------
-| !totalespecies - todas as especies               |
-| !especies num - num = de 1 a 4                   |
+ !especies - todas as especies               
+ !especies num = de 1 a 4                   
 ----------------------------------------------------
-| !totalveiculos - todos os veiculos               |
-| !veiculos num - num = de 1 a 4                   |
+ !veiculos - todos os veiculos               
+ !veiculos num = de 1 a 4                   
 ----------------------------------------------------
 `))
 
 }
 
-module.exports = {welcomeMessage, defaultMessage, commandsMessage, errorMessage}
+module.exports = { welcomeMessage, defaultMessage, commandsMessage, errorMessage }

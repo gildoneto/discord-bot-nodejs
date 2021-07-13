@@ -5,61 +5,59 @@ const api = require('../api/swapi')
 const variables = require('../db/variables.json')
 
 /**
+* Retorna um parâmetro baseado no arquivo variables.json
+* @param {string} comando - comando recebido pelo BOT
+*/
+const getParam = (comando) => variables.params.find(param => param.comando == comando)
+
+/**
 * Gerencia a mensagem recebida pelo BOT
 * @param {Discord.Message} message - mensagem recebida pelo BOT
 */
 const getMessage = async (message) => {
     const { channel, author, content } = message
     const arrayContent = content.split(' ')
+    const param = getParam(arrayContent[0])
     if (author.bot == false) {
-        switch (arrayContent[0]) {
-            case '!totalfilmes':
-                movieController.showAllMovies(channel, author)
-            break
-            case '!filmes':
-                movieController.handleMovie(channel, arrayContent[1])
-            break
-            case `!totalpersonagens`:
-                await api.getAllPages(channel, variables.characterParam, variables.characterTitle, variables.thumbPersonagens)
-            break
-            case `!personagens`:
-                await api.getPage(channel, variables.characterParam, variables.characterTitle, variables.thumbPersonagens, arrayContent[1])
-            break
-            case `!totalplanetas`:
-                await api.getAllPages(channel, variables.planetParam, variables.planetTitle, variables.thumbPlanetas)
-            break
-            case `!planetas`:
-                await api.getPage(channel, variables.planetParam, variables.planetTitle, variables.thumbPersonagens, arrayContent[1])
-            break
-            case `!totalnaves`:
-                await api.getAllPages(channel, variables.starshipParam, variables.starshipTitle, variables.thumbNaves)
-            break
-            case `!naves`:
-                await api.getPage(channel, variables.starshipParam, variables.starshipTitle, variables.thumbNaves, arrayContent[1])
-            break
-            case `!totalespecies`:
-                await api.getAllPages(channel, variables.speciesParam, variables.speciesTitle, variables.thumbSpecies)
-            break
-            case `!especies`:
-                await api.getPage(channel, variables.speciesParam, variables.speciesTitle, variables.thumbPersonagens, arrayContent[1])
-            break
-            case `!totalveiculos`:
-                await api.getAllPages(channel, variables.vehiclesParam, variables.vehiclesTitle, variables.thumbVeiculos)
-            break
-            case `!veiculos`:
-                await api.getPage(channel, variables.vehiclesParam, variables.vehiclesTitle, variables.thumbPersonagens, arrayContent[1])
-            break
-            case `!comandos`:
-                welcome.commandsMessage(channel)
-            break
+        switch (arrayContent.length) {
+            case 1:
+                switch (arrayContent[0]) {
+                    case '!filmes':
+                        movieController.showAllMovies(channel, author)
+                        break;
+                    case `!personagens`:
+                    case `!planetas`:
+                    case `!naves`:
+                    case `!especies`:
+                    case `!veiculos`:
+                        await api.getAllPages(channel, param.endpoint, param.title, param.thumb)
+                        break;
+                    case `!comandos`:
+                        welcome.commandsMessage(channel)
+                        break
+                    default:
+
+                        break;
+                }
+                break;
             default:
-                welcome.defaultMessage(channel, author)
-            break
+                switch (arrayContent[0]) {
+                    case '!filmes':
+                        movieController.handleMovie(channel, arrayContent[1], author)
+                        break;
+                    case `!personagens`:
+                    case `!planetas`:
+                    case `!naves`:
+                    case `!especies`:
+                    case `!veiculos`:
+                        await api.getPage(channel, param.endpoint, param.title, param.thumb, arrayContent[1])
+                        break;
+                    default:
+                        break;
+                }
+                break;
         }
     }
-
-     
 }
 
-
-module.exports = {getMessage}
+module.exports = { getMessage }

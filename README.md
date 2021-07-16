@@ -40,3 +40,4 @@ Para rodar este projeto na sua máquina, siga os seguintes passos:
 
 Depois desses passos, o seu Bot deve ficar online, e atender alguns comandos. Digite !comandos pra começar a brincadeira e que a forca esteja com você.
 
+teste
